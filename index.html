@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phân tích Market Distribution trong ERP Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Phân tích Market Distribution trong ERP Game</h1>
+        <p>Công cụ phân tích dữ liệu và đề xuất chiến thuật phân phối thị trường</p>
+    </header>
+
+    <main>
+        <section class="data-section">
+            <h2>Dữ liệu Market Distribution</h2>
+            <div class="table-container">
+                <table id="marketData">
+                    <thead>
+                        <tr>
+                            <th>Khu vực</th>
+                            <th>Định dạng</th>
+                            <th>Nuts Muesli</th>
+                            <th>Blueberries Muesli</th>
+                            <th>Strawberries Muesli</th>
+                            <th>Raisins Muesli</th>
+                            <th>Original Muesli</th>
+                            <th>Mixed Fruits Muesli</th>
+                            <th>Other</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="2">North</td>
+                            <td>1kg</td>
+                            <td>23</td>
+                            <td>8</td>
+                            <td>11</td>
+                            <td>26</td>
+                            <td>14</td>
+                            <td>27</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>500g</td>
+                            <td>25</td>
+                            <td>5</td>
+                            <td>12</td>
+                            <td>13</td>
+                            <td>37</td>
+                            <td>14</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">South</td>
+                            <td>1kg</td>
+                            <td>39</td>
+                            <td>10</td>
+                            <td>19</td>
+                            <td>45</td>
+                            <td>11</td>
+                            <td>56</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>500g</td>
+                            <td>9</td>
+                            <td>28</td>
+                            <td>11</td>
+                            <td>19</td>
+                            <td>11</td>
+                            <td>27</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="2">West</td>
+                            <td>1kg</td>
+                            <td>26</td>
+                            <td>8</td>
+                            <td>14</td>
+                            <td>18</td>
+                            <td>12</td>
+                            <td>30</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>500g</td>
+                            <td>12</td>
+                            <td>15</td>
+                            <td>26</td>
+                            <td>16</td>
+                            <td>10</td>
+                            <td>16</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="charts-section">
+            <h2>Phân tích trực quan</h2>
+            <div class="chart-container">
+                <div class="chart">
+                    <h3>Phân phối sản phẩm theo khu vực</h3>
+                    <canvas id="regionChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>So sánh định dạng sản phẩm</h3>
+                    <canvas id="formatChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <div class="chart">
+                    <h3>Phân tích xu hướng sản phẩm</h3>
+                    <canvas id="productChart"></canvas>
+                </div>
+                <div class="chart">
+                    <h3>Phân tích thị phần</h3>
+                    <canvas id="marketShareChart"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <section class="analysis-section">
+            <h2>Phân tích chiến thuật Market Distribution</h2>
+            <div class="analysis-container">
+                <div class="analysis-card">
+                    <h3>Phân tích khu vực</h3>
+                    <div id="regionAnalysis" class="analysis-content"></div>
+                </div>
+                <div class="analysis-card">
+                    <h3>Phân tích định dạng</h3>
+                    <div id="formatAnalysis" class="analysis-content"></div>
+                </div>
+                <div class="analysis-card">
+                    <h3>Phân tích sản phẩm</h3>
+                    <div id="productAnalysis" class="analysis-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="strategy-section">
+            <h2>Đề xuất chiến thuật tối ưu</h2>
+            <div class="strategy-container">
+                <div class="strategy-card">
+                    <h3>Chiến thuật phân phối khu vực</h3>
+                    <div id="regionStrategy" class="strategy-content"></div>
+                </div>
+                <div class="strategy-card">
+                    <h3>Chiến thuật định dạng sản phẩm</h3>
+                    <div id="formatStrategy" class="strategy-content"></div>
+                </div>
+                <div class="strategy-card">
+                    <h3>Chiến thuật danh mục sản phẩm</h3>
+                    <div id="productStrategy" class="strategy-content"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="research-section">
+            <h2>Nghiên cứu học thuật</h2>
+            <div class="research-container">
+                <div class="research-card">
+                    <h3>Nghiên cứu về tối ưu hóa phân phối thị trường</h3>
+                    <div id="marketResearch" class="research-content"></div>
+                </div>
+                <div class="research-card">
+                    <h3>Nghiên cứu về chiến thuật ERP Game</h3>
+                    <div id="erpResearch" class="research-content"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Phân tích dữ liệu Market Distribution trong ERP Game</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
